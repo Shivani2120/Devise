@@ -1,0 +1,90 @@
+
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark p-4">
+    <h5 class="text-white h4">Collapsed content</h5>
+    <span class="text-muted">Toggleable via the navbar brand.</span>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Email Login & logout </h1>
+        
+<div id="user_nav">
+    <% if user_signed_in? %>
+        
+        <p>
+            <strong>Profile Pick:</strong><br>
+            <%= image_tag(current_user.avatar.url, width: "40", height: "40", alt: 'Avatar',title: 'Rails Application') if current_user.avatar? %>
+        </p>    
+
+        <p>
+            <strong>First Name:</strong>
+            <%= current_user.first_name %>
+        </p>
+
+        <p>
+           <strong>last Name:</strong>
+            <%= current_user.last_name %>
+        <p>
+         
+        <p>
+           <strong>Contect:</strong>
+            <%= current_user.contact %>
+        <p>
+        
+        <p>
+           <strong>Email:</strong>
+            <%= current_user.email %>
+        <p> 
+
+        <p> 
+           <strong>Gender:</strong>
+           <%= current_user.gender %>
+        </p>    
+
+        Signed in as <i><u><%= current_user.email %>.</u><i> This cannot be change?<br>
+        <%= link_to 'Sign out', destroy_user_session_path,  :method => :delete  %>
+        &nbsp;&nbsp;
+        <%= link_to 'Edit Profile', edit_user_registration_path %>
+
+
+    <% else %>
+
+    
+
+
+    <div>
+        <%= link_to 'Register', new_user_registration_path %> 
+    </div>
+    <div>       
+        <%= link_to 'Sign in', new_user_session_path %>
+    </div>    
+    <% end %>
+
+</div>    
+        <p class="btn btn-secondary my-2">
+
+          <%= link_to "user_post", user_posts_path(:user_id) %>
+
+      </p>
+        <p class="btn btn-secondary my-2" >
+          <%= link_to "Edit User Post", edit_user_post_path(:user_id, :id) %>
+      </p>
+          <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+

@@ -1,0 +1,16 @@
+<div class="navbar navbar-dark bg-dark">
+  <%= link_to 'Home', home_index_path %>
+  <%= link_to 'Post', home_index_path %>
+  <%= link_to 'Register', new_user_post_path(:user_id) %>
+  <%= link_to 'Sign in', edit_user_post_path(:id, :user_id) %>
+<div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<div>
+  
+</div>
